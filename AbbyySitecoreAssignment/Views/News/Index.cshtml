@@ -1,0 +1,91 @@
+﻿
+@using AbbyySitecoreAssignment.Models;
+@model NewsPageModel
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .filters {
+            margin-bottom: 20px;
+        }
+
+            .filters select {
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+        .news-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+            .news-item h2 {
+                margin: 0;
+                font-size: 1.5em;
+            }
+
+            .news-item p {
+                margin: 5px 0 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>News Page</h1>
+        <div class="filters">
+            <label for="category">Category:</label>
+            <select id="category" onchange="filterNewsByCandD()">
+                @foreach (var cat in Model.Categories)
+                {
+                    <option value="cat">cat</option>
+                }
+               <option value="all">all </option>
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" onchange="filterNewsByCandD()">
+        </div>
+
+        <div id="news-list">
+            @foreach (var news in Model.News)
+            {
+                <h2>@news.Title</h2>
+                <h3>@news.Category</h3>
+                <p><strong>Date:</strong>@news.Updated</p>
+                <p>@news.Description</p>
+            }
+            <!-- News items will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        function filterNewsByCandD() {
+            const category = document.getElementById('category').value;
+            const date = document.getElementById('date').value;
+
+            window.location.href = "/newspage?category='" + category + "'&date=" + date + "";
+
+        }
+
+    </script>
+</body>
+</html>
