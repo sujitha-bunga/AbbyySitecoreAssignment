@@ -1,1 +1,1 @@
-# AbbyyReactwithCore
+# AbbyySitecoreAssigment
