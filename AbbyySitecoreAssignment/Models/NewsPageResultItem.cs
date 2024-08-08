@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Sitecore.ContentSearch;
+using Sitecore.ContentSearch.Converters;
 using Sitecore.ContentSearch.SearchTypes;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace AbbyySitecoreAssignment.Models
 {
@@ -17,6 +19,7 @@ namespace AbbyySitecoreAssignment.Models
 
         [IndexField("title")]
         public string Title { get; set; }
+
     }
 
 

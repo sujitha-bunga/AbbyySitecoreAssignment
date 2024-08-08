@@ -54,11 +54,11 @@
         <div class="filters">
             <label for="category">Category:</label>
             <select id="category" onchange="filterNewsByCandD()">
+                <option value="all">all </option>
                 @foreach (var cat in Model.Categories)
                 {
-                    <option value="cat">cat</option>
+                    <option value="@cat">@cat</option>
                 }
-               <option value="all">all </option>
             </select>
 
             <label for="date">Date:</label>

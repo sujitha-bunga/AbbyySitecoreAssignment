@@ -32,7 +32,7 @@ namespace AbbyySitecoreAssignment.Controllers
 
             model.News = SearchNews(category, date, datasourceItemId);
             model.Categories = GetCategories();
-            
+
             return View(model);
         }
 
@@ -58,9 +58,9 @@ namespace AbbyySitecoreAssignment.Controllers
 
 
                 // Add category filter
-                if (!string.IsNullOrEmpty(category) && category!="all")
+                if (!string.IsNullOrEmpty(category) && category != "all")
                 {
-                    results = results.Where(item => item?["category"] == category).ToList();
+                    results = results.Where(item => item.Category.ToString() == category).ToList();
                 }
 
                 // Add date filter
